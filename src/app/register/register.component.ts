@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RestangularModule, Restangular } from 'ngx-restangular';
+import 'rxjs/Rx';
 
 @Component({
-  selector: 'app-auth',
+  selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -13,7 +14,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(private restangular: Restangular) { }
   registerUser(){
-  	console.log(this.username)
   	let data = { 'username': this.username, 'email': this.email, 'password': this.password}
   	let baseUrl = this.restangular.all('auth/register');
   	// console.log(baseUrl);
@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
         }, function(err) {
             console.log(err);
         });
-
   }
 
   ngOnInit() {
