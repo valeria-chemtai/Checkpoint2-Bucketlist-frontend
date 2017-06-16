@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RestangularModule, Restangular } from 'ngx-restangular';
+import 'rxjs/Rx';
 
 
 @Component({
@@ -14,22 +16,22 @@ export class LoginComponent implements OnInit {
 	public loggedIn = false;
 
 
-  constructor(private restangular: Restangular) { }
+  constructor(private restangular: Restangular, private router: Router) { }
   loginUser(){
   	let data = { 'username': this.username, 'password': this.password}
   	let baseUrl = this.restangular.all('auth/login');
   	baseUrl.post(data).subscribe(resp => {
             console.log(resp);
-            if (resp.success) {
-          		localStorage.setItem('auth_token', resp.auth_token);
+          		localStorage.setItem('auth_token', resp.access_token);
           		this.loggedIn = true;
-        }
+              this.router.navigate(["/bucketlist"]);
+        
         }, function(err) {
             console.log(err);
         });
   }
 
-  logout() {
+  logoutUser() {
     localStorage.removeItem('auth_token');
     this.loggedIn = false;
   }

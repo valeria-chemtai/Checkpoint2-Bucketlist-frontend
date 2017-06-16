@@ -1,3 +1,23 @@
-<p>
-  bucketlist works!
-</p>
+<input type=text name="name" id="bucketlist" placeholder="bucketlist"
+       [(ngModel)]="name">
+<button *ngIf="!edit" (click)="addBucketlist()" >Add</button>
+<button *ngIf="edit" (click)="savebucketlistTittle()" >Save</button>
+<ul *ngIf="todoList">
+    <li *ngFor="let bucketlist of bucketlists" class="row">
+        <label>
+            Uncompleted
+            <input type="checkbox"
+                   [(ngModel)]="bucketlist.completed"
+                   (change)="changeCompleted(bucketlist)">
+            <span class="lever"></span>
+            Completed
+        </label>
+    
+    <span (dblclick)="editbucketlist(bucketlist)">{{bucketlist.title}}</span>
+    <div class="card-action">
+        <a (click)="removebucketlist(bucketlist)" >Delete</a>
+        <a (click)="editbucketlist(bucketlist)" >Edit</a>
+    </div>
+                
+    </li>
+</ul>
