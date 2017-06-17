@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
             console.log(resp);
           		localStorage.setItem('auth_token', resp.access_token);
           		this.loggedIn = true;
+              window.location.reload();
               this.router.navigate(["/bucketlist"]);
         
         }, function(err) {

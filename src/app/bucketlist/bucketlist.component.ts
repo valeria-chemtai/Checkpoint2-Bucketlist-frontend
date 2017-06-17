@@ -10,11 +10,12 @@ import 'rxjs/Rx';
 })
 export class BucketlistComponent implements OnInit {
   name;
+  bucketlists;
 
   constructor(private restangular: Restangular, private router: Router) { }
 
-  ngOnInit() {
-
+  ngOnInit() { 
+    this.getBucketlist()
   }
 addBucketlist(){
     let data = { 'name': this.name};
@@ -27,4 +28,21 @@ addBucketlist(){
         });
   }
 
+getBucketlist(){
+    let baseUrl = this.restangular.all('/bucketlists/');
+    let list = baseUrl.getList().subscribe(resp => {
+            this.bucketlists = resp;
+        }, function(err) {
+            console.log(err);
+        });
+  }
+
+removeBucketlist(bucketlist){
+  let baseUrl = this.restangular.all('/bucketlists/<int:id>/');
+  baseUrl.delete(bucketlist).subscribe(resp =>{
+    console.log( resp);
+        }, function(err) {
+            console.log(err);
+  });
+}
 }

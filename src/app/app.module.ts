@@ -4,6 +4,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import { FormsModule } from '@angular/forms';
+import { MaterializeModule } from 'ng2-materialize';
+
 
 import { AppComponent } from './app.component';
 import { BucketlistComponent } from './bucketlist/bucketlist.component';
@@ -29,6 +31,7 @@ export function RestangularConfigFactory (RestangularProvider) {
     BrowserModule,
     RestangularModule.forRoot(RestangularConfigFactory),
     HttpModule,
+    MaterializeModule.forRoot(),
     FormsModule,
     RouterModule.forRoot([
       { path: 'register', component: RegisterComponent },
