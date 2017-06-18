@@ -1,11 +1,11 @@
 <section class="container">
     <h1 class="center-align">
-     BucketLists   
+     {{"Stuff to be done ASAP!!!" }}  
     </h1>
     <input type=text name="name"  placeholder="bucketlist"
            [(ngModel)]="name">
     <button *ngIf="!edit" (click)="addBucketlist()" class="waves-effect waves-light btn">Add</button>
-    <button *ngIf="edit" (click)="saveBucketlist()" class="waves-effect waves-light btn">Save</button>
+    <button *ngIf="edit" (click)="saveBucketlistName()" class="waves-effect waves-light btn">Save</button>
     <ul *ngIf="bucketlists">
         <li *ngFor="let bucketlist of bucketlists" class="row">
             <div class="col s12 m8 offset-m2">
@@ -21,10 +21,10 @@
                                 Completed
                             </label>
                         </div>
-                        <span (dblclick)="editBucketlist(bucketlist.id)">{{bucketlist.name}}</span>
+                        <span (dblclick)="editBucketlist(bucketlist)">{{bucketlist.name}}</span>
                         <div class="card-action">
-                            <a (click)="removeBucketlist(bucketlist.id)" class="waves-effect waves-light btn">Delete</a>
-                            <a (click)="editBucketlist(bucketlist.id)" class="waves-effect waves-light btn">Edit</a>
+                            <a (click)="deleteBucketlist(bucketlist.id)" class="waves-effect waves-light btn">Delete</a>
+                            <a (click)="editBucketlist(bucketlist)" class="waves-effect waves-light btn">Edit</a>
                         </div>
                     </div>
                 </div>

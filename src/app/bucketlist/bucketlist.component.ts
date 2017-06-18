@@ -6,11 +6,15 @@ import 'rxjs/Rx';
 @Component({
   selector: 'app-bucketlist',
   templateUrl: './bucketlist.component.html',
-  styleUrls: ['./bucketlist.component.css']
+  styleUrls: ['./bucketlist.component.css'],
+  moduleId: module.id,
 })
 export class BucketlistComponent implements OnInit {
   name;
   bucketlists;
+  bucketlist;
+  edit: boolean = false;
+  private _editBucketlist;
 
   constructor(private restangular: Restangular, private router: Router) { }
 
@@ -18,11 +22,14 @@ export class BucketlistComponent implements OnInit {
     this.getBucketlist()
   }
 addBucketlist(){
-    let data = { 'name': this.name};
-    let baseUrl = this.restangular.all('/bucketlists/');
+  let data = { 'name': this.name};
+  let baseUrl = this.restangular.all('/bucketlists/');
     // console.log(baseUrl);
-    baseUrl.post(data).subscribe(resp => {
+    
+  baseUrl.post(data).subscribe(resp => {
             console.log( resp);
+            this.getBucketlist();
+            this.name = ''
         }, function(err) {
             console.log(err);
         });
@@ -30,19 +37,43 @@ addBucketlist(){
 
 getBucketlist(){
     let baseUrl = this.restangular.all('/bucketlists/');
-    let list = baseUrl.getList().subscribe(resp => {
+    baseUrl.getList().subscribe(resp => {
             this.bucketlists = resp;
         }, function(err) {
             console.log(err);
         });
   }
 
-removeBucketlist(bucketlist){
-  let baseUrl = this.restangular.all('/bucketlists/<int:id>/');
-  baseUrl.delete(bucketlist).subscribe(resp =>{
+deleteBucketlist(id){
+  let baseUrl = this.restangular.one('/bucketlists/', id);
+  baseUrl.remove().subscribe(resp =>{
     console.log( resp);
+    this.getBucketlist();
+    this.name = ''
         }, function(err) {
             console.log(err);
   });
+}
+
+editBucketlist(bucketlist): void{
+  this.edit = true;
+  this._editBucketlist = bucketlist;
+  this.name = bucketlist.name;
+}
+saveBucketlist(editBucketlist){
+  editBucketlist.put().subscribe(resp =>{
+    console.log( resp);
+    this.getBucketlist();
+    this.name = '' 
+        }, function(err) {
+            console.log(err);
+  });
+}
+saveBucketlistName(){
+  this._editBucketlist.name = this.name;
+  this.saveBucketlist(this._editBucketlist);
+  this.edit =false;
+  this._editBucketlist = null;
+  this.name = ''
 }
 }
