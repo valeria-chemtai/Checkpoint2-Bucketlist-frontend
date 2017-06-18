@@ -1,0 +1,22 @@
+<div>
+ <div style="text-align:center">
+  <h1>
+    YOLO {{title}}!!
+  </h1>
+  <img width="300" src="./app.yolo.jpg">
+</div>
+<ul *ngIf="!isLoggedIn()">
+  <li>
+    <h2><a routerLink="register">Register</a></h2>
+  </li>
+  <li>
+    <h2><a routerLink="login">Login</a></h2>
+  </li>
+  <li>
+    <h2><a routerLink="about">About Us</a></h2>
+  </li>
+</ul>
+<div class='container'>
+  <router-outlet></router-outlet>
+</div>
+</div>

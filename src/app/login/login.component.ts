@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 	username;
 	password;
 	auth_token;
-	public loggedIn = false;
+	
 
 
   constructor(private restangular: Restangular, private router: Router) { }
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   	baseUrl.post(data).subscribe(resp => {
             console.log(resp);
           		localStorage.setItem('auth_token', resp.access_token);
-          		this.loggedIn = true;
+          		// this.loggedIn = true;
               window.location.reload();
               this.router.navigate(["/bucketlist"]);
         
@@ -32,14 +32,10 @@ export class LoginComponent implements OnInit {
         });
   }
 
-  logoutUser() {
-    localStorage.removeItem('auth_token');
-    this.loggedIn = false;
-  }
-
-  isLoggedIn() {
-    return this.loggedIn;
-  }
+  // logoutUser() {
+  //   localStorage.removeItem('auth_token');
+  //   this.loggedIn = false;
+  // }
 
 
   ngOnInit() {

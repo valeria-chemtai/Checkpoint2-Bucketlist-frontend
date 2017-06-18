@@ -5,7 +5,7 @@
     <input type=text name="name"  placeholder="bucketlist"
            [(ngModel)]="name">
     <button *ngIf="!edit" (click)="addBucketlist()" class="waves-effect waves-light btn">Add</button>
-    <button *ngIf="edit" (click)="saveBucketlistName()" class="waves-effect waves-light btn">Save</button>
+    <button *ngIf="edit" (click)="saveBucketlist()" class="waves-effect waves-light btn">Save</button>
     <ul *ngIf="bucketlists">
         <li *ngFor="let bucketlist of bucketlists" class="row">
             <div class="col s12 m8 offset-m2">
