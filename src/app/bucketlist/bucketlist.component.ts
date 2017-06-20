@@ -36,6 +36,7 @@ export class BucketlistComponent implements OnInit {
   }
 
   getBucketlist(){
+    console.log('token: ', localStorage.getItem('auth_token'))
     let baseUrl = this.restangular.all('/bucketlists/');
     baseUrl.getList().subscribe(resp => {
       this.bucketlists = resp;
@@ -70,5 +71,9 @@ export class BucketlistComponent implements OnInit {
     }, function(err) {
       console.log(err);
     });
+  }
+
+  viewBucketlistItems(id){
+    this.router.navigate(["/items", id]);
   }
 }

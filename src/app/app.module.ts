@@ -36,7 +36,8 @@ export function RestangularConfigFactory (RestangularProvider) {
     RouterModule.forRoot([
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'bucketlist', component: BucketlistComponent }
+      { path: 'bucketlist', component: BucketlistComponent },
+      { path: 'items/:id', component: BucketlistItemsComponent }
       
     ])
   ],
