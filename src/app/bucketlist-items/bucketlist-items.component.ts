@@ -72,11 +72,11 @@ export class BucketlistItemsComponent implements OnInit {
 
   editItem(item): void{
     this.edit = true;
-    this.item = item;
+    this.item = this.restangular.one('bucketlists', this.bucketlist_id).one('items', item.id);
     this.name = item.name;
   }
   saveItem(){
-    this.item.name = this.name
+    this.item.name = this.name;
     this.item.put().subscribe(resp =>{
       console.log( resp);
       this.getItems(this.bucketlist_id);
