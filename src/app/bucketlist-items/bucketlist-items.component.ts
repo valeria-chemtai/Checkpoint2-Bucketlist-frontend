@@ -55,11 +55,15 @@ export class BucketlistItemsComponent implements OnInit {
     });
   }
 
-  deleteItem(bucketlist_id, item_id){
-    let baseUrl = this.restangular.one('bucketlists', bucketlist_id).one('items', item_id);
+  deleteItem(id){
+    console.log(this.bucketlist_id);
+    console.log(id);
+    let baseUrl = this.restangular.one('bucketlists', this.bucketlist_id).one('items', id);
+    // console.log(baseUrl);
+    // debugger;
     baseUrl.remove().subscribe(resp =>{
       console.log( resp);
-      this.getItems(bucketlist_id);
+      this.getItems(this.bucketlist_id);
       this.name = ''
     }, function(err) {
       console.log(err);

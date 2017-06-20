@@ -2,7 +2,7 @@
     <h3 class="center-align">
      {{ bucketlist_name }}  
     </h3>
-    <input type="text" name="name"  placeholder="bucketlist" [(ngModel)]="name">
+    <input type="text" name="name"  placeholder="{{ bucketlist_name}} items" [(ngModel)]="name">
     <button *ngIf="!edit" (click)="addItem()" class="waves-effect waves-light btn">Add</button>
     <button *ngIf="edit" (click)="saveItem()" class="waves-effect waves-light btn">Save</button>
     <div *ngIf="!items || items.length == 0">No items in this bucketlist</div>
@@ -23,7 +23,7 @@
                         </div>
                         <span (dblclick)="editItem(item)">{{item.name}}</span>
                         <div class="card-action">
-                            <a (click)="deleteItem(item.item_id)" class="waves-effect waves-light btn">Delete</a>
+                            <a (click)="deleteItem(item.id)" class="waves-effect waves-light btn">Delete</a>
                             <a (click)="editItem(item)" class="waves-effect waves-light btn">Edit</a>
                         </div>
                     </div>
