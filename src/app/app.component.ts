@@ -6,7 +6,7 @@ import { Http, Headers } from '@angular/http';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'Bucket List Manager';
+  pagetitle = 'Bucket List Manager';
 
   private loggedIn = false;
   constructor(private http: Http) {

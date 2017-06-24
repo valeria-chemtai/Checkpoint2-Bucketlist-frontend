@@ -12,6 +12,9 @@ import { BucketlistComponent } from './bucketlist/bucketlist.component';
 import { BucketlistItemsComponent } from './bucketlist-items/bucketlist-items.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 export function RestangularConfigFactory (RestangularProvider) {
   RestangularProvider.setBaseUrl('http://127.0.0.1:5000/');
@@ -25,7 +28,10 @@ export function RestangularConfigFactory (RestangularProvider) {
     BucketlistComponent,
     BucketlistItemsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    WelcomeComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,8 @@ export function RestangularConfigFactory (RestangularProvider) {
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'bucketlist', component: BucketlistComponent },
-      { path: 'items/:id', component: BucketlistItemsComponent }
+      { path: 'items/:id', component: BucketlistItemsComponent },
+      { path: '', component: WelcomeComponent }
       
     ])
   ],

@@ -1,8 +1,13 @@
+<app-header>
 <input type='checkbox' id='form-switch'>
 <form id='login-form' action="" method='post'>
   <input type="text" name="username" placeholder="Username" required [(ngModel)]="username">
   <input type="text" name="email" placeholder="Email" required [(ngModel)]="email">
   <input type="password" name="password" placeholder="Password" required [(ngModel)]="password">
   <button (click)="registerUser()">Register!</button>
-  
+  <router-outlet></router-outlet> 
 </form>
+<ng-content></ng-content>
+</app-header>
+<app-footer>
+</app-footer>

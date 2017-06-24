@@ -1,7 +1,8 @@
+<app-header>
 <section class="container">
-    <h1 class="center-align">
+    <h6 class="center-align">
      {{"Stuff to be done ASAP!!!" }}  
-    </h1>
+    </h6>
     <input type=text name="name"  placeholder="bucketlist"
            [(ngModel)]="name">
     <button *ngIf="!edit" (click)="addBucketlist()" class="waves-effect waves-light btn">Add</button>
@@ -11,16 +12,6 @@
             <div class="col s12 m8 offset-m2">
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
-                        <div class="switch">
-                            <label>
-                                Uncompleted
-                                <input type="checkbox"
-                                       [(ngModel)]="bucketlist.completed"
-                                       (change)="changeCompleted(bucketlist)">
-                                <span class="lever"></span>
-                                Completed
-                            </label>
-                        </div>
                         <span (dblclick)="editBucketlist(bucketlist)">{{bucketlist.name}}</span>
                         <div class="card-action">
                             <a (click)="deleteBucketlist(bucketlist.id)" class="waves-effect waves-light btn">Delete</a>
@@ -33,3 +24,7 @@
         </li>
     </ul>
 </section>
+<ng-content></ng-content>
+</app-header>
+<app-footer>
+</app-footer>
