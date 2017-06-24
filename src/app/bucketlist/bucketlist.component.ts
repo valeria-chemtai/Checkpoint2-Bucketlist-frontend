@@ -24,7 +24,6 @@ export class BucketlistComponent implements OnInit {
   addBucketlist(){
     let data = { 'name': this.name};
     let baseUrl = this.restangular.all('/bucketlists/');
-    // console.log(baseUrl);
     
     baseUrl.post(data).subscribe(resp => {
       console.log( resp);

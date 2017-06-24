@@ -9,25 +9,24 @@ import 'rxjs/Rx';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-	username;
-	email;
-	password;
+  username;
+  email;
+  password;
 
   constructor(private restangular: Restangular, private router: Router) { }
   registerUser(){
-  	let data = { 'username': this.username, 'email': this.email, 'password': this.password}
-  	let baseUrl = this.restangular.all('auth/register');
-  	// console.log(baseUrl);
-  	baseUrl.post(data).subscribe(resp => {
-            console.log( resp);
-            this.router.navigate(["/login"]);
-        }, function(err) {
-            console.log(err);
-        });
+    let data = { 'username': this.username, 'email': this.email, 'password': this.password}
+    let baseUrl = this.restangular.all('auth/register');
+    baseUrl.post(data).subscribe(resp => {
+      console.log( resp);
+      this.router.navigate(["/login"]);
+    }, function(err) {
+      console.log(err);
+    });
   }
 
   ngOnInit() {
-  	
+
   }
 
 }

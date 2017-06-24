@@ -8,13 +8,7 @@ import { Http, Headers } from '@angular/http';
 export class AppComponent {
   pagetitle = 'Bucket List Manager';
 
-  private loggedIn = false;
-  constructor(private http: Http) {
-    this.loggedIn = !!localStorage.getItem('auth_token');
-  }
+ 
+  constructor() {}
   
-  isLoggedIn() {
-    return this.loggedIn;
-  }
-
 }
