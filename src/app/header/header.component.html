@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+    <title></title>
+ </head>
+ <body>
+ <div class="container-fluid" >
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation"><a href="#">Welcome</a></li> 
+                <li role="presentation"><a routerLink="/register">Register!</a></li>
+                <li role="presentation"><a routerLink="/login">Login!</a></li>
+                <router-outlet></router-outlet> 
+            </ul>
+        </nav>
+        <h5 class="text-muted">YOLO Bucket List Manager</h5>
+    </div>
+</div>
+<ng-content></ng-content>
+</body>
+</html>
