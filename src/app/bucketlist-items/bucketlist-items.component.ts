@@ -23,6 +23,7 @@ export class BucketlistItemsComponent implements OnInit {
         .params
         .subscribe(params => {
             this.bucketlist_id = params['id'];
+            console.log(this.bucketlist_id);
         });
   	this.getItems(this.bucketlist_id)
   	let get_bucketlist = this.restangular.one('bucketlists', this.bucketlist_id).get()

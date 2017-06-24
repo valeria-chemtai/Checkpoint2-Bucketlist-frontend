@@ -1,22 +1,15 @@
-<!DOCTYPE html>
- <html>
- <head>
-    <title></title>
- </head>
- <body>
  <div class="container-fluid" >
-    <div class="header">
-        <nav>
+    <div class="navbar-fixed">
+        <nav class="blue-grey darken-1">
             <ul class="nav nav-pills pull-right">
                 <li role="presentation"><a href="#">Welcome</a></li> 
-                <li role="presentation"><a routerLink="/register">Register!</a></li>
-                <li role="presentation"><a routerLink="/login">Login!</a></li>
+                <li *ngIf="!isLoggedIn()" role="presentation"><a routerLink="/register">Register!</a></li>
+                <li *ngIf="!isLoggedIn()" role="presentation"><a routerLink="/login">Login!</a></li>
+                <li *ngIf="isLoggedIn()" role="presentation"><a (click)="logoutUser()">Logout!</a></li>
                 <router-outlet></router-outlet> 
             </ul>
         </nav>
-        <h5 class="text-muted">YOLO Bucket List Manager</h5>
     </div>
+    <h5 class="text-muted" align="center">YOLO Bucket List Manager</h5>
 </div>
 <ng-content></ng-content>
-</body>
-</html>

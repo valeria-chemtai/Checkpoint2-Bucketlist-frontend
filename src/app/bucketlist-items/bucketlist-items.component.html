@@ -1,39 +1,39 @@
 <app-header>
-<section class="container">
-    <h4 class="center-align">
-     {{ bucketlist_name }}  
-    </h4>
-    <input type="text" name="name"  placeholder="{{ bucketlist_name}} items" [(ngModel)]="name">
-    <button *ngIf="!edit" (click)="addItem()" class="waves-effect waves-light btn">Add</button>
-    <button *ngIf="edit" (click)="saveItem()" class="waves-effect waves-light btn">Save</button>
-    <div *ngIf="!items || items.length == 0">No items in this bucketlist</div>
-    <ul *ngIf="items">
-        <li *ngFor="let item of items" class="row">
-            <div class="col s12 m8 offset-m2">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <div class="switch">
-                            <label>
-                                Uncompleted
-                                <input type="checkbox"
-                                       [(ngModel)]="item.completed"
-                                       (change)="changeCompleted(item)">
-                                <span class="lever"></span>
-                                Completed
-                            </label>
-                        </div>
-                        <span (dblclick)="editItem(item)">{{item.name}}</span>
-                        <div class="card-action">
-                            <a (click)="deleteItem(item.id)" class="waves-effect waves-light btn">Delete</a>
-                            <a (click)="editItem(item)" class="waves-effect waves-light btn">Edit</a>
+    <section class="container">
+        <h4 class="center-align">
+            {{ bucketlist_name }}  
+        </h4>
+        <input type="text" name="name"  placeholder="{{ bucketlist_name}} items" [(ngModel)]="name">
+        <button *ngIf="!edit" (click)="addItem()" class="waves-effect waves-light btn">Add</button>
+        <button *ngIf="edit" (click)="saveItem()" class="waves-effect waves-light btn">Save</button>
+        <div *ngIf="!items || items.length == 0">No items in this bucketlist</div>
+        <ul *ngIf="items">
+            <li *ngFor="let item of items" class="row">
+                <div class="col s12 m8 offset-m2">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <div class="switch">
+                                <label>
+                                    Uncompleted
+                                    <input type="checkbox"
+                                    [(ngModel)]="item.completed"
+                                    (change)="changeCompleted(item)">
+                                    <span class="lever"></span>
+                                    Completed
+                                </label>
+                            </div>
+                            <span (dblclick)="editItem(item)">{{item.name}}</span>
+                            <div class="card-action">
+                                <a (click)="deleteItem(item.id)" class="waves-effect waves-light btn">Delete</a>
+                                <a (click)="editItem(item)" class="waves-effect waves-light btn">Edit</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </li>
-    </ul>
-</section>
-<ng-content></ng-content>
+            </li>
+        </ul>
+    </section>
+    <ng-content></ng-content>
 </app-header>
 <app-footer>
 </app-footer>

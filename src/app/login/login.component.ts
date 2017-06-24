@@ -32,10 +32,7 @@ export class LoginComponent implements OnInit {
         });
   }
 
-  // logoutUser() {
-  //   localStorage.removeItem('auth_token');
-  //   this.loggedIn = false;
-  // }
+
 
 
   ngOnInit() {
