@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import 'rxjs/Rx';
+import {Ng2PaginationModule} from 'ng2-pagination';
 
 @Component({
   selector: 'app-bucketlist',

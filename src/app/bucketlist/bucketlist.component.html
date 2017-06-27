@@ -3,12 +3,14 @@
         <h6 class="center-align">
             {{"Stuff to be done ASAP!!!" }}  
         </h6>
+        <div class="line">
         <input type=text name="name"  placeholder="bucketlist"
         [(ngModel)]="name">
+        </div>
         <button *ngIf="!edit" (click)="addBucketlist()" class="waves-effect waves-light btn">Add</button>
         <button *ngIf="edit" (click)="saveBucketlist()" class="waves-effect waves-light btn">Save</button>
         <ul *ngIf="bucketlists">
-            <li *ngFor="let bucketlist of bucketlists" class="row">
+            <li *ngFor="let bucketlist of bucketlists | paginate: {itemsPerPage: 2, currentPage:page, id: '1'}; " class="row">
                 <div class="col s12 m8 offset-m2">
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
@@ -22,6 +24,8 @@
                     </div>
                 </div>
             </li>
+            <pagination-controls (pageChange)="page = $event" id="1" maxSize="5" directionLinks="true" autoHide="true">
+            </pagination-controls>
         </ul>
     </section>
     <ng-content></ng-content>

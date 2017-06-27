@@ -4,9 +4,10 @@ form {
   width:300px
 }
 input {
+  text-align: left;
   margin-bottom:3px;
   padding:10px;
-  width: 100%;
+  width: 150%;
   border:1px solid #CCC
 }
 button {
