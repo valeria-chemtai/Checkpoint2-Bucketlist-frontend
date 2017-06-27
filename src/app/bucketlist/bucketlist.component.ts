@@ -15,6 +15,7 @@ export class BucketlistComponent implements OnInit {
   bucketlists;
   bucketlist;
   edit: boolean = false;
+  search;
   // private _editBucketlist;
 
   constructor(private restangular: Restangular, private router: Router) { }
@@ -75,5 +76,13 @@ export class BucketlistComponent implements OnInit {
 
   viewBucketlistItems(id){
     this.router.navigate(["/items", id]);
+  }
+
+  searchBucketlist(){
+    this.restangular.all("bucketlists").customGET('', { q: this.search}).subscribe(resp => {
+       this.bucketlists = resp;
+    }, err => {
+      console.log(err)
+    });
   }
 }

@@ -3,6 +3,12 @@
         <h6 class="center-align">
             {{"Stuff to be done ASAP!!!" }}  
         </h6>
+        <div class="search">
+                   
+                    <input type ="text" name="search" placeholder="search bucketlist" [(ngModel)]="search">
+                    <button (click)="searchBucketlist()"><span class="material-icons "></span>Search</button>
+                  
+        </div>
         <div class="line">
         <input type=text name="name"  placeholder="bucketlist"
         [(ngModel)]="name">

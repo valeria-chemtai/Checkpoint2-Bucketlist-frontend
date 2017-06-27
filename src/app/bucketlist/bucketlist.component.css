@@ -17,3 +17,10 @@ li.row > div > .card > .card-content {
 li.row > div > .card > .card-content > .card-action {
   padding-left: 0;
 }
+
+.search{
+	position: absolute;
+	top: 55px;
+	right:150px;
+
+}
