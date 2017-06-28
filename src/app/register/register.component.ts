@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   username;
   email;
   password;
+  registerResp;
 
   constructor(private restangular: Restangular, private router: Router) { }
   registerUser(){
@@ -20,8 +21,10 @@ export class RegisterComponent implements OnInit {
     baseUrl.post(data).subscribe(resp => {
       console.log( resp);
       this.router.navigate(["/login"]);
-    }, function(err) {
-      console.log(err);
+    }, resp => {
+            console.log(resp.data.message);
+            this.registerResp = resp.data.message;
+
     });
   }
 

@@ -1,13 +1,17 @@
 <app-header>
-	<main>
-		<input type='checkbox' id='form-switch'>
-		<form id='login-form' action="" method='post'>
-			<input type="text" name="username" placeholder="Username/Email" required [(ngModel)]="username">
-			<input type="password" name="password" placeholder="Password" required [(ngModel)]="password">
-			<button (click)="loginUser()">Login!</button>
+	<h2 class="center-align">Login Here</h2>
+	<form data->
+		<div class="container">
+			<div *ngIf="loginResp" id="errorMessages"><ul><li>{{ loginResp }}</li></ul></div>
+			<label for="username"><b>Username</b></label>
+			<input type="text" placeholder="Enter Username/Email" name="username"  [(ngModel)]="username" required>
 
-		</form>
-	</main>
+			<label for="password"><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="password" [(ngModel)]="password" required>
+
+			<button type="submit" (click)="loginUser()">Login</button>
+		</div>
+	</form>
 	<ng-content></ng-content>
 </app-header>
 <app-footer>

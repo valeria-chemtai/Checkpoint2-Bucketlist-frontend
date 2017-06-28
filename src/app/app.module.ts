@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import { FormsModule } from '@angular/forms';
 import { MaterializeModule } from 'ng2-materialize';
+import {Ng2PaginationModule} from 'ng2-pagination';
 
 
 import { AppComponent } from './app.component';
@@ -39,12 +40,15 @@ export function RestangularConfigFactory (RestangularProvider) {
     HttpModule,
     MaterializeModule.forRoot(),
     FormsModule,
+    Ng2PaginationModule,
     RouterModule.forRoot([
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'bucketlist', component: BucketlistComponent },
       { path: 'items/:id', component: BucketlistItemsComponent },
-      { path: '', component: WelcomeComponent }
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', redirectTo:'welcome', pathMatch:'full'},
+      { path: '**', redirectTo:'welcome', pathMatch:'full'}
       
     ])
   ],
