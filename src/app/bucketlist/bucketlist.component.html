@@ -3,18 +3,22 @@
         <h6 class="center-align">
             {{"Stuff to be done ASAP!!!" }}  
         </h6>
-        <div class="search">
-                   
-                    <input type ="text" name="search" placeholder="search bucketlist" [(ngModel)]="search">
-                    <button (click)="searchBucketlist()"><span class="material-icons "></span>Search</button>
-                  
+        <div class="row">
+            <div class="col m3 offset-m9">
+                <input type ="text" name="search" placeholder="search bucketlist" [(ngModel)]="search">
+                <button (click)="searchBucketlist()" class="waves-effect waves-light btn"><span class="material-icons "></span>Search</button>
+            </div>
         </div>
-        <div class="line">
-        <input type=text name="name"  placeholder="bucketlist"
-        [(ngModel)]="name">
+        <div class="row">
+            <div class="col m9 offset-m2">
+                <input type=text name="name"  placeholder="bucketlist"
+                [(ngModel)]="name">
+
+                <button *ngIf="!edit" (click)="addBucketlist()" class="waves-effect waves-light btn">Add</button>
+                <div *ngIf="showErrors" id="errorMessages"><ul><li>{{ bucketlistResp }}</li></ul></div>
+                <button *ngIf="edit" (click)="saveBucketlist()" class="waves-effect waves-light btn">Save</button>
+            </div>
         </div>
-        <button *ngIf="!edit" (click)="addBucketlist()" class="waves-effect waves-light btn">Add</button>
-        <button *ngIf="edit" (click)="saveBucketlist()" class="waves-effect waves-light btn">Save</button>
         <ul *ngIf="bucketlists">
             <li *ngFor="let bucketlist of bucketlists | paginate: {itemsPerPage: 2, currentPage:page, id: '1'}; " class="row">
                 <div class="col s12 m8 offset-m2">

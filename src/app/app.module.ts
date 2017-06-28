@@ -46,7 +46,9 @@ export function RestangularConfigFactory (RestangularProvider) {
       { path: 'login', component: LoginComponent },
       { path: 'bucketlist', component: BucketlistComponent },
       { path: 'items/:id', component: BucketlistItemsComponent },
-      { path: '', component: WelcomeComponent }
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', redirectTo:'welcome', pathMatch:'full'},
+      { path: '**', redirectTo:'welcome', pathMatch:'full'}
       
     ])
   ],

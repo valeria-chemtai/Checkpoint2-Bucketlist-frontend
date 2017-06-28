@@ -1,28 +1,41 @@
 form {
-  margin:0 auto;
-  width:300px
+    border: 3px solid #f1f1f1;
 }
-input {
-  margin-bottom:3px;
-  padding:10px;
-  width: 150%;
-  border:1px solid #CCC
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
+
 button {
-  padding:10px
+    background-color: #26a69a;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
-label {
-  cursor:pointer
+
+button:hover {
+    opacity: 0.8;
 }
-#form-switch {
-  display:none
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
 }
-#register-form {
-  display:none
+
+.container {
+    padding: 16px;
+    width: 40%;
 }
-#form-switch:checked~#register-form {
-  display:block
-}
-#form-switch:checked~#login-form {
-  display:none
+
+span.psw {
+    float: right;
+    padding-top: 16px;
 }
