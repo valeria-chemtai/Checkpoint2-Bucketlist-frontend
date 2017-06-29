@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+#errorMessages {
+    margin: 2em auto;
+    background-color: #ecf0f1;
+    overflow: hidden;
+}
+
+#errorMessages li {
+    padding: 1em;
+    background-color: #26a69a;
+    color: #ecf0f1;
+    font-weight: 400;
+    margin: 0 1em;
+    margin-bottom: 1em;
+}
+
+#errorMessages ul {
+    list-style: none;
+}
+

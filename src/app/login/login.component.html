@@ -1,0 +1,18 @@
+<app-header>
+	<h2 class="center-align">Login Here</h2>
+	<form data->
+		<div class="container">
+			<div *ngIf="loginResp" id="errorMessages"><ul><li>{{ loginResp }}</li></ul></div>
+			<label for="username"><b>Username</b></label>
+			<input type="text" placeholder="Enter Username/Email" name="username"  [(ngModel)]="username" required>
+
+			<label for="password"><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="password" [(ngModel)]="password" required>
+
+			<button type="submit" (click)="loginUser()">Login</button>
+		</div>
+	</form>
+	<ng-content></ng-content>
+</app-header>
+<app-footer>
+</app-footer>

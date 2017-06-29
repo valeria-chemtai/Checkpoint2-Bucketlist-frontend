@@ -1,0 +1,15 @@
+.center-align {
+  font-size: 30px;
+  color: #336666;
+}
+
+li.row {
+  margin-bottom: 0;
+}
+li.row > div > .card > .card-content {
+  font-size: 20px;
+  padding-bottom: 1px;
+}
+li.row > div > .card > .card-content > .card-action {
+  padding-left: 0;
+}
