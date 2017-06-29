@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import 'rxjs/Rx';
+import {Subject} from "rxjs";
+import {Ng2PaginationModule} from 'ng2-pagination';
 
 @Component({
   selector: 'app-bucketlist-items',
@@ -15,6 +17,7 @@ export class BucketlistItemsComponent implements OnInit {
 	edit: boolean = false;
 	bucketlist_id;
 	bucketlist_name;
+  private changeStatus$ = new Subject();
 
   constructor(private restangular: Restangular, private route: ActivatedRoute) { }
 
@@ -87,5 +90,9 @@ export class BucketlistItemsComponent implements OnInit {
       console.log(err);
     });
   }
+
+  changeCompleted(item) {
+        this.changeStatus$.next(item);
+    }
 
 }
